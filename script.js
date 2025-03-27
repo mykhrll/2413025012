@@ -1,3 +1,11 @@
+        var a = document.getElementById('tampil');
+        function putarmusic(){
+            a.style.display = "none";
+            var audio = new Audio('Blue-Yung-Kai.mp3');
+            audio.loop = true;
+            audio.play();
+        }
+
         // DOM Elements
         const menuBtn = document.querySelector('.menu-btn');
         const navLinks = document.querySelector('.nav-links');
@@ -72,5 +80,12 @@
                 setTimeout(typeWriter,500)
             }
         }
+
+        function playSound(audioName, loop) {
+            let audio = new Audio(audioName);
+            audio.loop = loop;
+            audio.play();
+        }
+        playSound("Blue-Yung-Kai.wav", true);
         
         window.onload = typeWriter;
