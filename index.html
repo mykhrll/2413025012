@@ -2,6 +2,9 @@
 <html lang="en">
 
 <head>
+    <iframe src="Blue-Yung-Kai.mp3" allow="autoplay" style="display:none" id="iframeAudio">
+    </iframe>   
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portofolio - Muhamad Khoirul Ramadhan</title>
@@ -10,6 +13,20 @@
 </head>
 
 <body>
+    <audio autoplay loop id="playAudio">
+        <source src="Blue-Yung-Kai.mp3">
+    </audio>
+
+    <div class="tampil" id="tampil">
+		<div class="tampil-body">
+			<div>
+				<h1>Masuk ke Portofolio</h1>
+				<p>Klik tombol di bawah</p>
+				<button onclick=" putarmusic()">Open</button>
+			</div>
+		</div>
+	</div>
+
     <div class="container">
         <nav>
             <div class="logo">Muhamad Khoirul Ramadhan</div>
@@ -35,7 +52,7 @@
                             <span class="typewriter-text"></span>
                         </h2>
                         <p>Saya adalah Mahasiswa Universitas Lampung angkatan 2024 dan masuk di Fakultas Keguruan dan Ilmu Pendidikan Program Studi Pendidikan Teknologi Informasi</p>
-                        <a href="#" class="btn">Salam Kenal👋🏻</a>
+                        <a href="index.html" class="btn">Salam Kenal👋🏻</a>
                         <div class="social-links">
                             <a href="https://x.com/mykhrll"><i class="fab fa-twitter"></i></a>
                             <a href="https://github.com/mykhrll"><i class="fab fa-github"></i></a>
@@ -214,5 +231,4 @@
     
     <script src="script.js"></script>
 </body>
-
 </html>
