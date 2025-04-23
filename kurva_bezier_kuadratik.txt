@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Pemandangan Pantai - Khoirul</title>
+<style>
+  body {
+    text-align: center;
+    font-family: sans-serif;
+    background-color: #caf0f8;
+  }
+  canvas {
+    border: 1px solid black;
+    display: block;
+    margin: 10px auto;
+    background-color: #90e0ef;
+  }
+</style>
+</head>
+<body>
+<h2>Pemandangan di Tepi Pantai</h2>
+<canvas id="myCanvas" width="600" height="300"></canvas>
+<script>
+const canvas = document.getElementById("myCanvas");
+const ctx = canvas.getContext("2d");
+
+// Matahari terbenam
+function drawSunset(x, y, radius) {
+  ctx.beginPath();
+  ctx.arc(x, y, radius, 0, Math.PI, true);
+  ctx.fillStyle = "orange";
+  ctx.fill();
+}
+drawSunset(500, 200, 40);
+
+// Ombak (menggunakan kurva kuadratik)
+function drawWaves() {
+  ctx.beginPath();
+  ctx.moveTo(0, 250);
+  for (let x = 0; x < canvas.width; x += 40) {
+    ctx.quadraticCurveTo(x + 20, 230 + Math.random() * 10, x + 40, 250);
+  }
+  ctx.lineTo(canvas.width, canvas.height);
+  ctx.lineTo(0, canvas.height);
+  ctx.closePath();
+  ctx.fillStyle = "#0077b6";
+  ctx.fill();
+}
+drawWaves();
+
+// Perahu layar (menggunakan kurva kuadratik)
+function drawSailboat(x, y) {
+  // Badan perahu
+  ctx.beginPath();
+  ctx.moveTo(x, y);
+  ctx.quadraticCurveTo(x + 20, y + 20, x + 40, y);
+  ctx.lineTo(x, y);
+  ctx.fillStyle = "#6c757d";
+  ctx.fill();
+  
+  // Tiang layar
+  ctx.beginPath();
+  ctx.moveTo(x + 20, y);
+  ctx.lineTo(x + 20, y - 40);
+  ctx.strokeStyle = "brown";
+  ctx.lineWidth = 2;
+  ctx.stroke();
+  
+  // Layar segitiga
+  ctx.beginPath();
+  ctx.moveTo(x + 20, y - 40);
+  ctx.lineTo(x + 40, y - 20);
+  ctx.lineTo(x + 20, y);
+  ctx.closePath();
+  ctx.fillStyle = "white";
+  ctx.fill();
+}
+drawSailboat(100, 240);
+drawSailboat(300, 260);
+
+// Burung camar
+function drawBird(x, y) {
+  ctx.beginPath();
+  ctx.moveTo(x, y);
+  ctx.quadraticCurveTo(x + 10, y - 10, x + 20, y);
+  ctx.quadraticCurveTo(x + 30, y - 10, x + 40, y);
+  ctx.strokeStyle = "black";
+  ctx.stroke();
+}
+drawBird(150, 60);
+drawBird(200, 50);
+drawBird(350, 40);
+</script>
+</body>
+</html>

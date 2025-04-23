@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Garis DDA - Khoirul</title>
+    <style>
+        body{
+            background-color:rgb(236, 244, 241);
+        }
+    </style>
+</head>
+<body>
+    <canvas id="mycanvas" width="600" height="600"></canvas>
+
+    <script>
+        let canvas = document.getElementById("mycanvas");
+        let ctx = canvas.getContext("2d");
+
+        ctx.fillStyle = "#FFFFFF";
+        ctx.fillRect(0,0,600,600);
+
+        function drawDDA(x0, y0, x1, y1){
+            let dx = x1 - x0;
+            let dy = y1 - y0;
+
+            let step = Math.max(Math.abs(dx), Math.abs(dy));
+
+            let xIncrement = dx / step;
+            let yIncrement = dy / step;
+
+            let x = x0;
+            let y = y0;
+
+            for (let i = 0; i <= step; i++){
+                ctx.fillStyle = "#9400D3"
+                ctx.fillRect(x, y, 5, 5);
+
+                x += xIncrement;
+                y += yIncrement;
+            }
+        }
+
+        drawDDA(550, 50, 50, 550);
+    </script>
+</body>
+</html>
